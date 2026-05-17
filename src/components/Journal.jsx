@@ -166,10 +166,10 @@ export default function Journal({ onAdd }) {
   }, [onAdd])
 
   return (
-    <div className="p-8 max-w-3xl mx-auto">
-      <motion.div className="mb-10" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={SPRING}>
+    <div className="p-4 md:p-8 max-w-3xl mx-auto">
+      <motion.div className="mb-6 md:mb-10" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={SPRING}>
         <p className="text-zinc-600 text-sm font-medium mb-1">תעד את המחשבות שלך</p>
-        <h1 className="text-3xl font-bold text-zinc-50">רשומה חדשה</h1>
+        <h1 className="text-2xl md:text-3xl font-bold text-zinc-50">רשומה חדשה</h1>
       </motion.div>
       <JournalEditor onSubmit={handleSave} />
     </div>

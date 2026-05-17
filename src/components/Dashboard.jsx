@@ -29,10 +29,10 @@ const MONTHS = ['ינואר','פברואר','מרץ','אפריל','מאי','יו
 const MILESTONE_DAYS = new Set([3, 7, 14, 30])
 
 /* ── DashboardStats — isolated card sub-component ── */
-function StatCard({ children, delay, glowColor }) {
+function StatCard({ children, delay }) {
   return (
     <motion.div
-      className="glass rounded-2xl p-5"
+      className="glass rounded-2xl p-3 md:p-5"
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ ...SPRING, delay }}
@@ -105,7 +105,7 @@ export default function Dashboard({ entries }) {
   const dateStr  = `יום ${DAYS[now.getDay()]}, ${now.getDate()} ב${MONTHS[now.getMonth()]} ${now.getFullYear()}`
 
   return (
-    <div className="p-8 max-w-4xl mx-auto">
+    <div className="p-4 md:p-8 max-w-4xl mx-auto">
       <AnimatePresence>
         {milestone && (
           <MilestoneCelebration streak={milestone} onDismiss={() => setMilestone(null)} />
@@ -113,9 +113,9 @@ export default function Dashboard({ entries }) {
       </AnimatePresence>
 
       {/* Header */}
-      <motion.div className="mb-10" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={SPRING}>
+      <motion.div className="mb-6 md:mb-10" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={SPRING}>
         <p className="text-zinc-600 text-sm mb-1 font-medium">{dateStr}</p>
-        <h1 className="text-3xl font-bold text-zinc-50">{greeting} <span className="text-2xl">👋</span></h1>
+        <h1 className="text-2xl md:text-3xl font-bold text-zinc-50">{greeting} <span className="text-xl md:text-2xl">👋</span></h1>
       </motion.div>
 
       {/* Quote */}
@@ -157,17 +157,17 @@ export default function Dashboard({ entries }) {
       </motion.div>
 
       {/* Stats row — DashboardStats */}
-      <div className="grid grid-cols-3 gap-4 mb-5">
+      <div className="grid grid-cols-3 gap-2 md:gap-4 mb-4 md:mb-5">
 
         <StatCard delay={0.1}>
           <div className="flex items-center gap-1.5 text-zinc-600 text-[10px] font-semibold uppercase tracking-widest mb-4">
             <Flame size={11} style={{ color: '#fb923c' }} /> רצף
           </div>
-          <div className="flex items-end gap-1.5 mb-4">
+          <div className="flex items-end gap-1 mb-3 md:mb-4">
             <AnimatePresence mode="wait">
               <motion.span
                 key={streak}
-                className="text-5xl font-black text-zinc-50 leading-none"
+                className="text-3xl md:text-5xl font-black text-zinc-50 leading-none"
                 initial={{ opacity: 0, scale: 1.3 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }}
                 transition={SPRING}
               >{streak}</motion.span>
@@ -201,11 +201,11 @@ export default function Dashboard({ entries }) {
           <div className="flex items-center gap-1.5 text-zinc-600 text-[10px] font-semibold uppercase tracking-widest mb-4">
             <BookOpen size={11} style={{ color: '#22d3ee' }} /> רשומות
           </div>
-          <div className="flex items-end gap-1.5 mb-1">
+          <div className="flex items-end gap-1 mb-1">
             <AnimatePresence mode="wait">
               <motion.span
                 key={entries.length}
-                className="text-5xl font-black text-zinc-50 leading-none"
+                className="text-3xl md:text-5xl font-black text-zinc-50 leading-none"
                 initial={{ opacity: 0, scale: 1.3 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }}
                 transition={SPRING}
               >{entries.length}</motion.span>

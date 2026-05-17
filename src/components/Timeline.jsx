@@ -144,10 +144,10 @@ function AnimatedTimeline({ entries, onDelete }) {
 
 export default function Timeline({ entries, onDelete }) {
   if (!entries.length) return (
-    <div className="p-8 max-w-3xl mx-auto">
-      <motion.div className="mb-10" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={SPRING}>
+    <div className="p-4 md:p-8 max-w-3xl mx-auto">
+      <motion.div className="mb-6 md:mb-10" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={SPRING}>
         <p className="text-zinc-600 text-sm font-medium mb-1">המסע שלך</p>
-        <h1 className="text-3xl font-bold text-zinc-50">ציר זמן</h1>
+        <h1 className="text-2xl md:text-3xl font-bold text-zinc-50">ציר זמן</h1>
       </motion.div>
       <motion.div
         className="flex flex-col items-center justify-center py-28 text-center"
@@ -164,10 +164,10 @@ export default function Timeline({ entries, onDelete }) {
   )
 
   return (
-    <div className="p-8 max-w-3xl mx-auto">
-      <motion.div className="mb-10" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={SPRING}>
+    <div className="p-4 md:p-8 max-w-3xl mx-auto">
+      <motion.div className="mb-6 md:mb-10" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={SPRING}>
         <p className="text-zinc-600 text-sm font-medium mb-1">המסע שלך</p>
-        <h1 className="text-3xl font-bold text-zinc-50">ציר זמן</h1>
+        <h1 className="text-2xl md:text-3xl font-bold text-zinc-50">ציר זמן</h1>
       </motion.div>
       <AnimatedTimeline entries={entries} onDelete={onDelete} />
     </div>

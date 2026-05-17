@@ -7,7 +7,7 @@ export default function CircularRing({ progress, completed, total }) {
 
   return (
     <div className="relative flex items-center justify-center">
-      <svg width="116" height="116" style={{ transform: 'rotate(-90deg)' }}>
+      <svg width="88" height="88" className="md:w-[116px] md:h-[116px]" style={{ transform: 'rotate(-90deg)' }}>
         <circle cx="58" cy="58" r={r} fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="7" />
         <circle
           cx="58" cy="58" r={r} fill="none"
@@ -27,8 +27,8 @@ export default function CircularRing({ progress, completed, total }) {
         </defs>
       </svg>
       <div className="absolute text-center">
-        <div className="text-xl font-black text-zinc-50">{Math.round(progress * 100)}%</div>
-        <div className="text-[10px] text-zinc-600 font-medium">{completed}/{total}</div>
+        <div className="text-base md:text-xl font-black text-zinc-50">{Math.round(progress * 100)}%</div>
+        <div className="text-[9px] md:text-[10px] text-zinc-600 font-medium">{completed}/{total}</div>
       </div>
     </div>
   )
